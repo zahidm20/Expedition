@@ -8,8 +8,8 @@ import "~/styles/globals.css";
 import { ThemeProvider } from "~/providers/ThemeProvoder";
 
 export const metadata = {
-  title: "Jourñee. | Travel Agency",
-  description: "Lets travel with Jourñee!",
+  title: "Expedition | Travel Agency",
+  description: "Lets travel with Expedition!",
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 

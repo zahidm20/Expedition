@@ -1,0 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 324 100% 99%; /* #FFFAFD */
+    --primary: 318 1% 7%; /* #121212 */
+    --border-radius: 24px;
+    --svg-path: url("/vector/curve-light.svg");
+  }
+
+  .dark {
+    --background: 318 1% 7%; /* #121212 */
+    --primary: 324 100% 99%; /* #FFFAFD */
+    --svg-path: url("/vector/curve-dark.svg");
+  }
+
+  html {
+    @apply scroll-pt-10 scroll-smooth;
+  }
+
+  body {
+    @apply bg-background font-main [scrollbar-color:var(--primary)_var(--background)] [scrollbar-width:_thin];
+  }
+
+  ::-webkit-scrollbar {
+    @apply w-[6px] transition-all;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-md bg-[#a9a9a9];
+  }
+
+  ::-moz-selection {
+    @apply bg-primary text-background;
+  }
+
+  ::selection {
+    @apply bg-primary text-background;
+  }
+}
+
+@layer component {
+  .my-container {
+    @apply mx-auto max-w-6xl px-2 xl:px-0;
+  }
+
+  .curve {
+    @apply relative;
+  }
+
+  .curve::before,
+  .curve::after {
+    @apply absolute bg-contain bg-no-repeat content-[''] [background-image:_var(--svg-path)];
+  }
+
+  .swiper-pagination-bullet-active {
+    @apply transition-all;
+    background: theme("colors.primary") !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    @apply transition-all;
+  }
+
+  .swiper-container {
+    @apply flex size-full items-center justify-center;
+  }
+
+  .swiper-slide {
+    @apply items-center justify-center px-5 text-center;
+    display: flex !important;
+  }
+
+  img {
+    @apply select-none;
+  }
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    @apply absolute -right-1 z-10 flex cursor-pointer items-center justify-center rounded-full p-2 after:hidden;
+    width: 2rem !important;
+    height: 2rem !important;
+    background: theme("colors.background") !important;
+    color: theme("colors.primary") !important;
+    right: 0 !important;
+    left: auto !important;
+    border: 1px solid theme("colors.primary") !important;
+  }
+
+  .swiper-button-prev {
+    position: static !important;
+    top: auto !important;
+    margin-top: 0 !important;
+  }
+
+  .swiper-button-next {
+    position: static !important;
+    top: auto !important;
+    margin-top: 0 !important;
+  }
+}
